@@ -1,9 +1,9 @@
+import os
 import torch
 import CustomDataset
 import torch.nn as nn
 import torch.optim as optim
 from models import NeuralNetwork
-from CustomDataset import CustomDataset
 from torch.utils.data import DataLoader
 from torchvision import transforms
 import config
@@ -16,8 +16,8 @@ def train_model():
     transform = transforms.Compose([
         transforms.ToTensor(),
     ])
-    dataset = CustomDataset(image_dir=config.DATA_SET['TRAIN_PATH'], label_file=config.DATA_SET['TRAIN_FILE'],
-                            transform=transform)
+    dataset = CustomDataset.CustomDataset(image_dir=config.DATA_SET['TRAIN_PATH'],
+                                          label_file=config.DATA_SET['TRAIN_FILE'], transform=transform)
     dataloader = DataLoader(dataset, batch_size=64, shuffle=True)
 
     criterion = nn.CrossEntropyLoss()
@@ -39,7 +39,8 @@ def train_model():
 
     print("模型训练完成，你希望存储为什么名字")
     name = input()
-    torch.save(model, f"./saved_models/{name}.pth")
+    output_dir = f"saved_models\\{name}.pth"
+    torch.save(model, output_dir)
     print("存储完毕")
 
 
@@ -55,8 +56,8 @@ def test_model():
     transform = transforms.Compose([
         transforms.ToTensor(),
     ])
-    dataset = CustomDataset(image_dir=config.DATA_SET['TRAIN_PATH'], label_file=config.DATA_SET['TRAIN_FILE'],
-                            transform=transform)
+    dataset = CustomDataset.CustomDataset(image_dir=config.DATA_SET['TRAIN_PATH'],
+                                          label_file=config.DATA_SET['TRAIN_FILE'], transform=transform)
     dataloader = DataLoader(dataset, batch_size=64, shuffle=True)
 
     correct = 0
@@ -65,7 +66,7 @@ def test_model():
         for images, labels in dataloader:
             images, labels = images.to(device), labels.to(device)
             outputs = model(images)
-            outputs = outputs.view(64, 5, 36)
+            outputs = outputs.view(-1, 5, 36)
             for output, label in zip(outputs, labels):
                 predicted = CustomDataset.tensor_transform_label(output)
                 label = CustomDataset.tensor_transform_label(label)

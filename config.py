@@ -7,7 +7,7 @@ MAIN_SET = {
 
 TRAIN_SET = {
     'image_size': 160 * 80,
-    'num_epoc': 100,
+    'num_epoc': 1,
 }
 
 DATA_SET = {
