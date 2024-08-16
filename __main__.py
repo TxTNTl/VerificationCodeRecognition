@@ -39,7 +39,10 @@ def train_model():
 
     print("模型训练完成，你希望存储为什么名字")
     name = input()
-    output_dir = f"saved_models\\{name}.pth"
+    output_dir = config.MAIN_SET['OUTPUT_PATH']
+    if not os.path.exists(config.MAIN_SET['OUTPUT_PATH']):
+        os.makedirs(output_dir)
+    output_dir = f"{output_dir}{name}.pth"
     torch.save(model, output_dir)
     print("存储完毕")
 

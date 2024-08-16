@@ -3,6 +3,7 @@ import torch
 MAIN_SET = {
     'characters': "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
     'device': 'cuda' if torch.cuda.is_available() else 'cpu',
+    'OUTPUT_PATH': "./saved_models/",
 }
 
 TRAIN_SET = {
