@@ -1,6 +1,4 @@
-import CustomDataset
+import torch
 
 
-a = CustomDataset.label_transform_tensor("ABC98")
-print(a)
-print(CustomDataset.tensor_transform_label(a))
+print(torch.cuda.is_available())

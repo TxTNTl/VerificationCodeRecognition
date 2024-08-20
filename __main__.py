@@ -1,4 +1,5 @@
 import os
+import time
 import torch
 import CustomDataset
 import torch.nn as nn
@@ -21,7 +22,7 @@ def train_model():
     dataloader = DataLoader(dataset, batch_size=64, shuffle=True)
 
     criterion = nn.CrossEntropyLoss()
-    optimizer = optim.Adam(model.parameters(), lr=0.001)
+    optimizer = optim.SGD(model.parameters(), lr=0.01, momentum=0.9, weight_decay=5e-4)
 
     model.train()
 
@@ -50,17 +51,18 @@ def train_model():
 def test_model():
     print("请输入你想读取的模型名称")
     name = input()
-    model = torch.load(f"./saved_models/{name}.pth", weights_only=False)
+
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    model = torch.load(f"./saved_models/{name}.pth", weights_only=False, map_location=device)
 
     model.eval()
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model.to(device)
 
     transform = transforms.Compose([
         transforms.ToTensor(),
     ])
-    dataset = CustomDataset.CustomDataset(image_dir=config.DATA_SET['TRAIN_PATH'],
-                                          label_file=config.DATA_SET['TRAIN_FILE'], transform=transform)
+    dataset = CustomDataset.CustomDataset(image_dir=config.DATA_SET['TEST_PATH'],
+                                          label_file=config.DATA_SET['TEST_FILE'], transform=transform)
     dataloader = DataLoader(dataset, batch_size=64, shuffle=True)
 
     correct = 0
@@ -79,6 +81,7 @@ def test_model():
                 else:
                     print(f"预测为{predicted}，实际为{label}，结果错误")
                 total += 1
+                time.sleep(5)
     print("测试完成")
     print(f"预测成功数量为{correct}，总预测数为{total}预测准确率为{correct / total}")
 
