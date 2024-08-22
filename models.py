@@ -7,7 +7,7 @@ class NeuralNetwork(nn.Module):
         super(NeuralNetwork, self).__init__()
         # size = 160 * 80
         self.layer1 = nn.Sequential(
-            nn.Conv2d(3, 64, kernel_size=3, padding=1),
+            nn.Conv2d(1, 64, kernel_size=3, padding=1),
             nn.ReLU(),
             nn.MaxPool2d(2, 2),
         )

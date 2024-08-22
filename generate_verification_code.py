@@ -57,15 +57,15 @@ def remove_test_dataset():
 mode = eval(input())
 if mode == 1:
     generate_train_dataset()
-    print("已生成训练数据集")
+    print("Train dataset generated")
 elif mode == 2:
     generate_test_dataset()
-    print("已生成测试数据集")
+    print("Test dataset generated")
 elif mode == 3:
     remove_train_dataset()
-    print("已删除训练数据集")
+    print("Train dataset removed")
 elif mode == 4:
     remove_test_dataset()
-    print("已删除测试数据集")
+    print("Test dataset removed")
 else:
-    print("无效指令")
+    print("Invalid mode")

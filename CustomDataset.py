@@ -2,6 +2,7 @@ import os
 import torch
 from PIL import Image
 from torch.utils.data import Dataset
+from torchvision import transforms
 import config
 
 
@@ -25,7 +26,10 @@ class CustomDataset(Dataset):
     def __init__(self, image_dir, label_file, transform=None):
         self.image_dir = image_dir
         self.label_file = label_file
-        self.transform = transform
+        self.transform = transforms.Compose([
+            transforms.ToTensor(),
+            transforms.Grayscale(),
+        ])
 
         with open(label_file, 'r') as f:
             self.labels = [label_transform_tensor(line.strip()) for line in f.readlines()]

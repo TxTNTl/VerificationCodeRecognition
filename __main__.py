@@ -1,12 +1,10 @@
 import os
-import time
 import torch
 import CustomDataset
 import torch.nn as nn
 import torch.optim as optim
 from models import NeuralNetwork
 from torch.utils.data import DataLoader
-from torchvision import transforms
 import config
 
 
@@ -14,11 +12,8 @@ def train_model():
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model = NeuralNetwork()
     model.to(device)
-    transform = transforms.Compose([
-        transforms.ToTensor(),
-    ])
     dataset = CustomDataset.CustomDataset(image_dir=config.DATA_SET['TRAIN_PATH'],
-                                          label_file=config.DATA_SET['TRAIN_FILE'], transform=transform)
+                                          label_file=config.DATA_SET['TRAIN_FILE'])
     dataloader = DataLoader(dataset, batch_size=64, shuffle=True)
 
     criterion = nn.CrossEntropyLoss()
@@ -30,9 +25,9 @@ def train_model():
         running_loss = 0.0
         for images, labels in dataloader:
             images, labels = images.to(device), labels.to(device)
-            optimizer.zero_grad()
             outputs = model(images)
             loss = criterion(outputs, labels)
+            optimizer.zero_grad()
             loss.backward()
             optimizer.step()
             running_loss += loss.item()
@@ -58,11 +53,8 @@ def test_model():
     model.eval()
     model.to(device)
 
-    transform = transforms.Compose([
-        transforms.ToTensor(),
-    ])
     dataset = CustomDataset.CustomDataset(image_dir=config.DATA_SET['TEST_PATH'],
-                                          label_file=config.DATA_SET['TEST_FILE'], transform=transform)
+                                          label_file=config.DATA_SET['TEST_FILE'])
     dataloader = DataLoader(dataset, batch_size=64, shuffle=True)
 
     correct = 0
@@ -81,7 +73,6 @@ def test_model():
                 else:
                     print(f"预测为{predicted}，实际为{label}，结果错误")
                 total += 1
-                time.sleep(5)
     print("测试完成")
     print(f"预测成功数量为{correct}，总预测数为{total}预测准确率为{correct / total}")
 

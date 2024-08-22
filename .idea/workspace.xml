@@ -7,8 +7,7 @@
     <list default="true" id="50091730-6246-461b-b94e-c50c050b484b" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__main__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/test_label.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dataset/test_label.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +34,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PerforceDirect.Settings">
+    <option name="CHARSET" value="无" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -68,7 +70,7 @@
       <recent name="D:\PythonProject\VerificationCodeRecognition" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.generate_verification_code">
+  <component name="RunManager" selected="Python.__main__">
     <configuration name="__main__" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="VerificationCodeRecognition" />
       <option name="ENV_FILES" value="" />
@@ -140,8 +142,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.generate_verification_code" />
         <item itemvalue="Python.__main__" />
+        <item itemvalue="Python.generate_verification_code" />
         <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
@@ -166,7 +168,7 @@
       <workItem from="1723533210971" duration="10337000" />
       <workItem from="1723619591154" duration="42968000" />
       <workItem from="1724030372871" duration="6492000" />
-      <workItem from="1724113351081" duration="4981000" />
+      <workItem from="1724113351081" duration="10929000" />
     </task>
     <servers />
   </component>
@@ -185,8 +187,8 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/VerificationCodeRecognition$__main__.coverage" NAME="__main__ 覆盖结果" MODIFIED="1724117444277" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/VerificationCodeRecognition$generate_verification_code.coverage" NAME="generate_verification_code 覆盖结果" MODIFIED="1724118358233" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/VerificationCodeRecognition$__main__.coverage" NAME="__main__ 覆盖结果" MODIFIED="1724122774692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/VerificationCodeRecognition$generate_verification_code.coverage" NAME="generate_verification_code 覆盖结果" MODIFIED="1724122754623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/VerificationCodeRecognition$test.coverage" NAME="test 覆盖结果" MODIFIED="1724116743963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
   </component>
 </project>
