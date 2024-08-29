@@ -17,7 +17,7 @@ def train_model():
     dataloader = DataLoader(dataset, batch_size=64, shuffle=True)
 
     criterion = nn.CrossEntropyLoss()
-    optimizer = optim.Adadelta(model.parameters(), lr=0.01, weight_decay=5e-4)
+    optimizer = optim.Adam(model.parameters(), lr=0.00005)
 
     model.train()
 
